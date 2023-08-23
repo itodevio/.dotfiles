@@ -1,5 +1,5 @@
 reload('user.keymaps')
 reload('user.colorscheme')
-reload('user.options')
-reload('user.plugins')
 reload('user.nvim-tree')
+reload('user.plugins')
+reload('user.options')

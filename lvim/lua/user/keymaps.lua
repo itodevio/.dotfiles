@@ -9,5 +9,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 
 
 lvim.builtin.which_key.mappings["r"] = { ":TroubleToggle<CR>", "TroubleToggle" }
-lvim.builtin.which_key.mappings["t"] = { ":ToggleTerm<CR>", "Terminal" }
+lvim.builtin.which_key.mappings["v"] = { ":VimBeGood<CR>", "VimBeGood" }
+
 

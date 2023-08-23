@@ -5,8 +5,8 @@ export DOTFILES="$HOME/.dotfiles"
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
 
-export ANDROID_HOME=~/Library/Android/sdk
-export ANDROID_SDK_HOME=~/Library/Android/sdk/
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_SDK_HOME=$HOME/Library/Android/sdk/
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 
 export PYENV_ROOT=$HOME/.pyenv
@@ -105,7 +105,7 @@ aws_env() { # Print target AWS task defitition environment variables in JSON for
 
 aws_env_file() { # Print target AWS task defitition environment variables in .env format (can throw that to a file by using ">> file")
 	aws ecs describe-task-definition --task-definition $1 | \
-	jq -r '.taskDefinition.containerDefinitions[0].environment[] | "\(.name)=\(.value | @sh)"' 
+	jq -r '.taskDefinition.containerDefinitions[0].environment[] | "\(.name)=\(.value | @sh)"'
 }
 
 

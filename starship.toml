@@ -57,10 +57,10 @@ truncation_length = 3
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-"github.com" = " "
-"studies" = " "
-"geekie-" = ""
-"geekie" = "󰧑"
+"github.com" = " " # projects folder
+"studies" = " " # studies folder
+"geekie-" = "" # work projects folder prefix
+"geekie" = "󰧑" # work parent folder
 # Keep in mind that the order matters. For example:
 # "Important Documents" = " 󰈙 "
 # will not be replaced, because "Documents" was already substituted before.
@@ -131,7 +131,7 @@ style = "bg:#86BBD8"
 format = '[ $symbol ]($style)'
 
 [rust]
-symbol = "🦀"
+symbol = "🦀" # Crab
 style = "bg:#86BBD8"
 format = '[ $symbol ]($style)'
 

@@ -7,3 +7,5 @@ vim.opt.tabstop = 2 --insert 2 spaces for a tab
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.showcmd = true --show vim commands while typing
 
+vim.g.blamer_enabled = true --enable blamer.vim plugin on nvim startup
+

@@ -3,13 +3,15 @@ lvim.plugins = {
   { "ntpeters/vim-better-whitespace" },
   { "romainl/vim-cool" },
   { "rafamadriz/friendly-snippets" },
+  { "APZelos/blamer.nvim" },
+  { "prisma/vim-prisma" },
+  {
+    "neoclide/coc.nvim",
+    branch = "release",
+  },
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
     "abecodes/tabout.nvim",

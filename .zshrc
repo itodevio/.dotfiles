@@ -3,6 +3,13 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export DOTFILES="$HOME/.dotfiles"
 
+## Golang
+export GOROOT=/usr/local/go-1.22
+export GOPATH=$HOME/projects/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$HOME/projects/go/bin
+
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -23,10 +30,12 @@ export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.rvm/bin
+export PATH=$PATH:$HOME/.local/share/solana/install/active_release/bin
+export PATH=$PATH:$HOME/.avm/bin
 
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
-export VISUAL="lvim"
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
 
@@ -74,8 +83,11 @@ export NVM_DIR="$HOME/.nvm"
 alias ls="exa --icons --classify --links --group-directories-first --git --oneline --all --long"
 alias l="ls"
 alias ll="ls"
-alias vim="lvim"
+alias vim="nvim"
 alias cd="z"
+alias cat="bat"
+alias python="python3"
+alias pip="pip3"
 
 alias geekie="cd $HOME/Dev/geekie"
 alias kik="cd $HOME/Dev/geekie"
@@ -110,3 +122,14 @@ aws_env_file() { # Print target AWS task defitition environment variables in .en
 
 
 
+
+# bun completions
+[ -s "/home/ito/.bun/_bun" ] && source "/home/ito/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Deno
+export DENO_INSTALL="/home/ito/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"

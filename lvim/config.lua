@@ -1,5 +1,0 @@
-reload('core.keymaps')
-reload('core.colorscheme')
-reload('core.nvim-tree')
-reload('core.plugins')
-reload('core.options')

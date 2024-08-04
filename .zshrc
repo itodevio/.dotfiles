@@ -32,6 +32,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.local/share/solana/install/active_release/bin
 export PATH=$PATH:$HOME/.avm/bin
+export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 

@@ -25,6 +25,16 @@ local lsp_attach = function(_, bufnr)
 	vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
     -- open signature help
 	vim.keymap.set('n', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
+
+    -- autoformat on save for go files
+    vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = bufnr,
+        callback = function()
+            if vim.bo.filetype == 'go' then
+                vim.lsp.buf.format({async = true})
+            end
+        end
+    })
 end
 
 lsp.extend_lspconfig({
@@ -77,7 +87,7 @@ cmp.setup({
 	},
 	mapping = cmp.mapping.preset.insert({
 		-- confirm completion
-		['<C-y>'] = cmp.mapping.confirm({select = true}),
+		['<Tab>'] = cmp.mapping.confirm({select = true}),
 		['<C-p>'] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
 		['<C-n>'] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
 		['<C-Space>'] = cmp.mapping.complete(),

@@ -5,11 +5,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 export DOTFILES="$HOME/.dotfiles"
 
-## Golang
-export GOROOT=/usr/local/go-1.22
-export GOPATH=$HOME/projects/go
-export GOBIN=$GOPATH/bin
-
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk

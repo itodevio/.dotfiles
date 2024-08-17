@@ -7,13 +7,15 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Color Themes
+  use('EdenEast/nightfox.nvim')
+  use('folke/tokyonight.nvim')
+
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-
-  use('EdenEast/nightfox.nvim')
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
@@ -33,4 +35,5 @@ return require('packer').startup(function(use)
   use('hrsh7th/cmp-buffer')
   use('L3MON4D3/LuaSnip')
   use('rafamadriz/friendly-snippets')
+  use('christoomey/vim-tmux-navigator')
 end)

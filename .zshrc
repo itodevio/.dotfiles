@@ -55,7 +55,7 @@ ZSH_THEME="kayid/kayid"
 plugins=(
 	git
 	zsh-autosuggestions
-  zsh-syntax-highlighting
+    zsh-syntax-highlighting
 )
 
 
@@ -64,9 +64,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 ## Starters
-# StarShip
-eval "$(starship init zsh)"
-
 # Zoxide
 eval "$(zoxide init zsh)"
 
@@ -78,13 +75,13 @@ eval "$(pyenv virtualenv-init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Nvm
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completionexport JAVA_HOME=$(/usr/libexec/java_home)
 
 
 ## Aliases
-alias ls="exa --icons --classify --links --group-directories-first --git --oneline --all --long"
+alias ls="eza --icons --classify --links --group-directories-first --git --oneline --all --long"
 alias l="ls"
 alias ll="ls"
 alias vim="nvim"
@@ -92,21 +89,6 @@ alias cd="z"
 alias cat="bat"
 alias python="python3"
 alias pip="pip3"
-
-alias geekie="cd $HOME/Dev/geekie"
-alias kik="cd $HOME/Dev/geekie"
-alias gueke="cd $HOME/Dev/geekie"
-alias gikiee="cd $HOME/Dev/geekie"
-alias guiki="cd $HOME/Dev/geekie"
-alias gueekie="cd $HOME/Dev/geekie"
-alias giki="cd $HOME/Dev/geekie"
-alias gek="cd $HOME/Dev/geekie"
-
-
-## Functions
-geekie-cl() { # Clone geekie repo
-	git clone https://github.com/projetoeureka/$1.git
-}
 
 del-ch() { # Delete current branch and checkout to target
 	CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
@@ -123,9 +105,6 @@ aws_env_file() { # Print target AWS task defitition environment variables in .en
 	aws ecs describe-task-definition --task-definition $1 | \
 	jq -r '.taskDefinition.containerDefinitions[0].environment[] | "\(.name)=\(.value | @sh)"'
 }
-
-
-
 
 # bun completions
 [ -s "/home/ito/.bun/_bun" ] && source "/home/ito/.bun/_bun"

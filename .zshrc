@@ -1,14 +1,14 @@
 ## Env
 export ZSH="$HOME/.oh-my-zsh"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export DOTFILES="$HOME/.dotfiles"
 
 ## Golang
 export GOROOT=/usr/local/go-1.22
 export GOPATH=$HOME/projects/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$HOME/projects/go/bin
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
 
@@ -18,6 +18,8 @@ export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 
 export PYENV_ROOT=$HOME/.pyenv
 
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$HOME/projects/go/bin
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -45,7 +47,8 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 
 ## Theme
-ZSH_THEME="half-life"
+#ZSH_THEME="half-life"
+ZSH_THEME="kayid/kayid"
 
 
 ## Plugins

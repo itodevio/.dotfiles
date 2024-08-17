@@ -48,9 +48,11 @@ ZSH_THEME="kayid/kayid"
 
 ## Plugins
 plugins=(
-	git
-	zsh-autosuggestions
+    git
+    zsh-autosuggestions
     zsh-syntax-highlighting
+    fast-syntax-highlighting
+    zsh-autocomplete
 )
 
 

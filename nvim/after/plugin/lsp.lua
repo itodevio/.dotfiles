@@ -24,7 +24,7 @@ local lsp_attach = function(_, bufnr)
     -- rename source
 	vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
     -- open signature help
-	vim.keymap.set('n', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
+	--vim.keymap.set('n', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
 
     -- autoformat on save for go files
     vim.api.nvim_create_autocmd('BufWritePre', {

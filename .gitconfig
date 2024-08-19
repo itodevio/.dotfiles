@@ -1,0 +1,26 @@
+[core]
+	pager = diff-so-fancy | less --tabs=2 -RF
+[init]
+	defaultBranch = main
+[user]
+	email = italoaa99@gmail.com
+	name = Italo Assunção
+[credential]
+	helper = store
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color]
+	ui = true
+[color "diff-highlighting"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newHighlight = green bold 52
+	newNormal = green bold
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

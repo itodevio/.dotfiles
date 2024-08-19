@@ -72,17 +72,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export DENO_INSTALL="/home/ito/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-## Aliases
-alias ls="eza --icons --classify --links --group-directories-first --git --oneline --all --long"
-alias l="ls"
-alias ll="ls"
-alias vim="nvim"
-alias cd="z"
-alias bat="bat --style numbers,changes --color=always"
-alias cat="bat"
-alias python="python3"
-alias pip="pip3"
-
 batdiff() { # Diff two files with bat
   git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
@@ -129,4 +118,15 @@ eval "$(pyenv virtualenv-init -)"
 
 # Fzf
 source <(fzf --zsh)
+
+## Aliases
+alias ls="eza -l --icons --classify --links --group-directories-first --git --oneline --all --long"
+alias l="ls"
+alias ll="ls"
+alias vim="nvim"
+alias cd="z"
+alias bat="bat --style numbers,changes --color=always"
+alias cat="bat"
+alias python="python3"
+alias pip="pip3"
 

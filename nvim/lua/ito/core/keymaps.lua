@@ -14,8 +14,8 @@ keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Split Windows
-keymap.set("n", "<leader>%", "<C-w>v") -- split vertically
-keymap.set("n", "<leader>\"", "<C-w>s") -- split horizontally
+keymap.set("n", "<leader>v", "<C-w>v") -- split vertically
+keymap.set("n", "<leader>h", "<C-w>s") -- split horizontally
 keymap.set("n", "<leader>c", ":close<CR>") -- close current split window
 keymap.set("n", "<leader>=", "<C-w>=") -- make split windows equal size
 keymap.set("n", "<leader>z", ":MaximizerToggle<CR>") -- toggle split window full screen

@@ -1,5 +1,8 @@
 ## Env
 export ZSH="$HOME/.oh-my-zsh"
+## Theme
+#ZSH_THEME="half-life"
+ZSH_THEME="kayid/kayid"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -40,10 +43,66 @@ export GIT_EDITOR="$VISUAL"
 export WORKON_HOME=~/Envs
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
+# Using bat to read git diff
+export PAGER="bat"
 
-## Theme
-#ZSH_THEME="half-life"
-ZSH_THEME="kayid/kayid"
+# Using Bat to read Man pages
+export MANROFFOPT="-c"
+export MANPAGER="sh -c 'col -bx | bat -plman'"
+
+# Fzf
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --color=never --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
+export FZF_ALT_C_COMMAND="fd --type d . --hidden --color=never --exclude .git"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Nvm
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completionexport JAVA_HOME=$(/usr/libexec/java_home)
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "/home/ito/.bun/_bun" ] && source "/home/ito/.bun/_bun"
+
+# Deno
+export DENO_INSTALL="/home/ito/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+## Aliases
+alias ls="eza --icons --classify --links --group-directories-first --git --oneline --all --long"
+alias l="ls"
+alias ll="ls"
+alias vim="nvim"
+alias cd="z"
+alias bat="bat --style numbers,changes --color=always"
+alias cat="bat"
+alias python="python3"
+alias pip="pip3"
+
+batdiff() { # Diff two files with bat
+  git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
+
+del-ch() { # Delete current branch and checkout to target
+	CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+	git checkout $1
+	git branch -D $CURRENT_BRANCH
+}
+
+aws_env() { # Print target AWS task defitition environment variables in JSON format (can throw that to a file by using ">> file")
+	aws ecs describe-task-definition --task-definition $1 | \
+	jq '.taskDefinition.containerDefinitions[0].environment | reduce .[] as $i ({}; .[$i.name] = $i.value)'
+}
+
+aws_env_file() { # Print target AWS task defitition environment variables in .env format (can throw that to a file by using ">> file")
+	aws ecs describe-task-definition --task-definition $1 | \
+	jq -r '.taskDefinition.containerDefinitions[0].environment[] | "\(.name)=\(.value | @sh)"'
+}
+
 
 
 ## Plugins
@@ -69,47 +128,5 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
-# Nvm
-export NVM_DIR="$XDG_CONFIG_HOME/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completionexport JAVA_HOME=$(/usr/libexec/java_home)
-
-
-## Aliases
-alias ls="eza --icons --classify --links --group-directories-first --git --oneline --all --long"
-alias l="ls"
-alias ll="ls"
-alias vim="nvim"
-alias cd="z"
-alias cat="bat"
-alias python="python3"
-alias pip="pip3"
-
-del-ch() { # Delete current branch and checkout to target
-	CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
-	git checkout $1
-	git branch -D $CURRENT_BRANCH
-}
-
-aws_env() { # Print target AWS task defitition environment variables in JSON format (can throw that to a file by using ">> file")
-	aws ecs describe-task-definition --task-definition $1 | \
-	jq '.taskDefinition.containerDefinitions[0].environment | reduce .[] as $i ({}; .[$i.name] = $i.value)'
-}
-
-aws_env_file() { # Print target AWS task defitition environment variables in .env format (can throw that to a file by using ">> file")
-	aws ecs describe-task-definition --task-definition $1 | \
-	jq -r '.taskDefinition.containerDefinitions[0].environment[] | "\(.name)=\(.value | @sh)"'
-}
-
-# bun completions
-[ -s "/home/ito/.bun/_bun" ] && source "/home/ito/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Deno
-export DENO_INSTALL="/home/ito/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"

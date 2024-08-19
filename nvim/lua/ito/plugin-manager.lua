@@ -83,6 +83,16 @@ return require('packer').startup(function(use)
   -- Git signs 
   use('lewis6991/gitsigns.nvim')
 
+  -- Copilot
+  use('zbirenbaum/copilot.lua')
+  use({
+    'zbirenbaum/copilot-cmp',
+    after = { 'copilot.lua' },
+    config = function ()
+      require('copilot_cmp').setup()
+    end,
+  })
+
   -- LSP
   use({'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'})
   use('neovim/nvim-lspconfig')
@@ -95,6 +105,7 @@ return require('packer').startup(function(use)
   use('L3MON4D3/LuaSnip')
   use('rafamadriz/friendly-snippets')
   use('saadparwaiz1/cmp_luasnip')
+  use('onsails/lspkind.nvim')
 
 
   if packer_bootstrap then

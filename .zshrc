@@ -72,6 +72,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export DENO_INSTALL="/home/ito/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+# Go
+export PATH="$PATH:`go env GOPATH`/bin"
+
 batdiff() { # Diff two files with bat
   git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }

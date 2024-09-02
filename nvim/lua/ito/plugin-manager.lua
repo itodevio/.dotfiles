@@ -106,6 +106,8 @@ return require('packer').startup(function(use)
   use('rafamadriz/friendly-snippets')
   use('saadparwaiz1/cmp_luasnip')
   use('onsails/lspkind.nvim')
+  use('ray-x/go.nvim')
+  use('ray-x/guihua.lua')
 
 
   if packer_bootstrap then

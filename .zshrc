@@ -8,7 +8,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 export DOTFILES="$HOME/.dotfiles"
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANDROID_SDK_HOME=$HOME/Library/Android/sdk/

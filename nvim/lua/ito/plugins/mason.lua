@@ -6,7 +6,6 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
-    'tsserver',
     'eslint',
     'gopls',
     'html',
@@ -45,6 +44,7 @@ require('mason-lspconfig').setup({
             usePlaceholders = true,
             analyses = {
               unusedparams = true,
+              unusedresult = true,
             },
           },
         },

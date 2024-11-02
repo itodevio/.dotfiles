@@ -15,6 +15,7 @@ export ANDROID_SDK_HOME=$HOME/Library/Android/sdk/
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 
 export PYENV_ROOT=$HOME/.pyenv
+export PIPENV_VENV_IN_PROJECT=1
 
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/projects/go/bin
@@ -33,6 +34,7 @@ export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.local/share/solana/install/active_release/bin
 export PATH=$PATH:$HOME/.avm/bin
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
+export PATH=$PATH:$HOME/.vector/bin
 
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 

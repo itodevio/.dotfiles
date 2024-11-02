@@ -62,6 +62,9 @@ return require('packer').startup(function(use)
   -- Examples: `ysiw"` -> surrounds word with ""; `cs"'` -> replace surrounding "" with ''; `cst"` -> replace surrounding html tag with ""
   use('tpope/vim-surround')
 
+  -- Extends vim's a/i commands
+  use('echasnovski/mini.ai')
+
   -- Easy commenting with `gcc`
   use('numToStr/Comment.nvim')
 

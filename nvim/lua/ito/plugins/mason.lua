@@ -2,12 +2,6 @@ local lspconfig = require('lspconfig')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local util = require('lspconfig/util')
 
--- Adding Deno support to ts files
-vim.g.markdown_fenced_languages = {
-"ts=typescript"
-}
-lspconfig.denols.setup{}
-
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -15,7 +9,6 @@ require('mason-lspconfig').setup({
     'eslint',
     'gopls',
     'biome',
-    'denols',
     'html',
     'cssls',
     'tailwindcss',

@@ -14,6 +14,7 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'eslint',
     'gopls',
+    'biome',
     'denols',
     'html',
     'cssls',

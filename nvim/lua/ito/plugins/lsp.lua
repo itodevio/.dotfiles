@@ -35,6 +35,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         if vim.bo.filetype == 'go' then
           require("go.format").gofmt()
           require("go.format").goimports()
+        else
+        vim.lsp.buf.format({ async = false })
         end
       end
     })

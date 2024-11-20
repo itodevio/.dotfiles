@@ -2,6 +2,9 @@ local lspconfig = require('lspconfig')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local util = require('lspconfig/util')
 
+-- Biome setup
+lspconfig.biome.setup{}
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {

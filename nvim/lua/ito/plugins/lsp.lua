@@ -1,9 +1,27 @@
+local root_pattern = require('lspconfig/util').root_pattern
+
+local function shouldFormat(event)
+  if root_pattern(
+    -- Biome Projects
+    "biome.json",
+    "biome.jsonc",
+
+    -- Deno Projects
+    "deno.json",
+    "deno.jsonc"
+  )(vim.fn.fnamemodify(event.match, ':p')) then
+    return true
+  end
+
+  return false
+end
+
 -- Lsp_attach is where you enable features that only work
 -- if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP keybindings',
   callback = function(event)
-    local opts = {buffer = event.buf}
+    local opts = { buffer = event.buf }
 
     -- Go to definition
     vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
@@ -32,14 +50,29 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.api.nvim_create_autocmd('BufWritePre', {
       buffer = event.buf,
       callback = function()
-        if vim.bo.filetype == 'go' then
+        local ft = vim.bo.filetype
+
+        if ft == 'go' then
           require("go.format").gofmt()
           require("go.format").goimports()
-        else
-        vim.lsp.buf.format({ async = false })
+        end
+
+        if shouldFormat(event) then
+          vim.lsp.buf.format()
         end
       end
     })
   end
 })
 
+vim.diagnostic.config({
+  virtual_text = {
+    source = true
+  },
+  signs = true,
+  float = {
+    header = 'Diagnostics',
+    source = true,
+    border = 'rounded',
+  },
+})

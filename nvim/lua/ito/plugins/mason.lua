@@ -3,14 +3,15 @@ local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local util = require('lspconfig/util')
 
 -- Biome setup
-lspconfig.biome.setup{}
+lspconfig.biome.setup {}
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
-    'eslint',
     'gopls',
+    'denols',
+    'ts_ls',
     'biome',
     'html',
     'cssls',
@@ -39,7 +40,7 @@ require('mason-lspconfig').setup({
     gopls = function()
       lspconfig.gopls.setup({
         capabilities = lsp_capabilities,
-        cmd = {"gopls"},
+        cmd = { "gopls" },
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
         root_dir = util.root_pattern("go.work", "go.mod", ".git"),
         settings = {
@@ -52,6 +53,28 @@ require('mason-lspconfig').setup({
             },
           },
         },
+      })
+    end,
+
+    ts_ls = function()
+      lspconfig.ts_ls.setup({
+        capabilities = lsp_capabilities,
+        root_dir = util.root_pattern("package.json"),
+        single_file_support = false,
+      })
+    end,
+
+    denols = function()
+      lspconfig.denols.setup({
+        capabilities = lsp_capabilities,
+        root_dir = util.root_pattern("deno.json", "deno.jsonc"),
+      })
+    end,
+
+    biome = function()
+      lspconfig.biome.setup({
+        capabilities = lsp_capabilities,
+        root_dir = util.root_pattern("biome.json", "biome.jsonc"),
       })
     end,
   },

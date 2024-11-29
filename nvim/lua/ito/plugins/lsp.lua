@@ -37,8 +37,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '[d', function() vim.lsp.buf.goto_next() end, opts)
     vim.keymap.set('n', ']d', function() vim.lsp.buf.goto_prev() end, opts)
 
-    -- Open code actions
-    vim.keymap.set('n', '<leader>lca', function() vim.lsp.buf.code_action() end, opts)
+    -- Open code actions - Currently using the fzf keybinding with the same shortcut
+    -- vim.keymap.set('n', '<M-ESC>', function() vim.lsp.buf.code_action() end, opts)
     -- Open references
     vim.keymap.set('n', '<leader>rr', function() vim.lsp.buf.references() end, opts)
     -- Rename source

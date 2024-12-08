@@ -29,10 +29,13 @@ keymap.set("n", "N", "Nzzzv")
 keymap.set("v", "<leader>p", "\"_dP")
 
 -- Deleting to void register
-keymap.set("n", "<leader>x", "\"_x")
 keymap.set("n", "<leader>d", "\"_d")
 keymap.set("v", "<leader>d", "\"_d")
 
 -- In normal mode, <leader>s will make a global replace in the string below the cursor
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Running Lua
+keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
+keymap.set("n", "<space>x", ":.lua<CR>")
+keymap.set("v", "<space>x", ":lua<CR>")

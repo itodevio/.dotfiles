@@ -1,2 +1,9 @@
--- work with git
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git);
+return {
+  -- Git integrations on vim
+  {
+    "tpope/vim-fugitive",
+    config = function()
+      vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
+    end,
+  },
+}

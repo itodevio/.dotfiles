@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 local keymap = vim.keymap
 
 -- Move highlighted up and down (vscode alt up and down equivalent)

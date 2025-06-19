@@ -130,6 +130,7 @@ alias ls="eza -l --icons --classify --links --group-directories-first --git --on
 alias l="ls"
 alias ll="ls"
 alias vim="nvim"
+alias v="nvim"
 alias cd="z"
 alias bat="bat --style numbers,changes --color=always"
 alias cat="bat"

@@ -1,3 +1,6 @@
+## Zsh configuration file
+export z="$HOME/.zshrc"
+
 ## Env
 export ZSH="$HOME/.oh-my-zsh"
 ## Theme
@@ -97,8 +100,6 @@ aws_env_file() { # Print target AWS task defitition environment variables in .en
 	jq -r '.taskDefinition.containerDefinitions[0].environment[] | "\(.name)=\(.value | @sh)"'
 }
 
-
-
 ## Plugins
 plugins=(
     git
@@ -111,6 +112,10 @@ plugins=(
 
 ## Oh My ZSH
 source $ZSH/oh-my-zsh.sh
+
+## Wal
+(cat ~/.cache/wal/sequences &)
+source $HOME/.cache/way/colors-tty.sh
 
 
 ## Starters

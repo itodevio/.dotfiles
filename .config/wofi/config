@@ -1,10 +1,10 @@
 [config]
 allow_images=true
-width=500
+width=650
 show=drun
 prompt=Search
-height=400
-term=kitty
+height=500
+term=ghostty
 hide_scroll=true
 print_command=true
 insensitive=true

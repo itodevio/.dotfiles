@@ -13,7 +13,7 @@ return {
       local util = require("lspconfig/util")
 
       -- Biome setup
-      lspconfig.biome.setup {}
+      lspconfig.biome.setup({})
 
       require("mason").setup({})
       require("mason-lspconfig").setup({
@@ -26,6 +26,7 @@ return {
           "html",
           "cssls",
           "tailwindcss",
+          "emmet_ls",
         },
         handlers = {
           function(server)
@@ -85,6 +86,12 @@ return {
             lspconfig.biome.setup({
               capabilities = lsp_capabilities,
               root_dir = util.root_pattern("biome.json", "biome.jsonc"),
+            })
+          end,
+
+          emmet_ls = function()
+            lspconfig.emmet_ls.setup({
+              capabilities = lsp_capabilities,
             })
           end,
         },

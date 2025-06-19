@@ -5,8 +5,6 @@
 [user]
 	email = italoaa99@gmail.com
 	name = Italo Assunção
-[credential]
-	helper = store
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [color]
@@ -26,3 +24,7 @@
 	whitespace = red reverse
 [branch]
 	sort = -committerdate
+[http]
+	sslVerify = false
+[credential]
+	helper = store

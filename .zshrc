@@ -117,10 +117,6 @@ source $ZSH/oh-my-zsh.sh
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# Pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # Fzf
 source <(fzf --zsh)
 
@@ -134,4 +130,7 @@ alias bat="bat --style numbers,changes --color=always"
 alias cat="bat"
 alias python="python3"
 alias pip="pip3"
+alias c="clear"
+alias s="source ~/.zshrc"
+alias ds="du -hs * | sort -hr"
 

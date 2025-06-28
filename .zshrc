@@ -115,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 
 ## Wal
 (cat ~/.cache/wal/sequences &)
-source $HOME/.cache/way/colors-tty.sh
+# source $HOME/.cache/way/colors-tty.sh
 
 
 ## Starters
@@ -138,5 +138,5 @@ alias python="python3"
 alias pip="pip3"
 alias c="clear"
 alias s="source ~/.zshrc"
-alias ds="du -hs * | sort -hr"
+alias ds="du -ahd1 * | sort -hr"
 

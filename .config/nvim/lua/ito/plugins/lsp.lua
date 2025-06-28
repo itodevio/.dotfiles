@@ -15,7 +15,10 @@ return {
 
           -- Deno Projects
           "deno.json",
-          "deno.jsonc"
+          "deno.jsonc",
+
+          -- Typescript Projects
+          "package.json"
         )(vim.fn.fnamemodify(event.match, ":p")) then
           return true
         end

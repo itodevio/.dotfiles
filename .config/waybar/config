@@ -18,12 +18,12 @@
             }
         },
         "clock": {
-            "format": "{:%H:%M:%S %p} ",
+            "format": "Day {:%d - %H:%M:%S %p} ",
             "interval": 1,   
             "tooltip-format": "<tt>{calendar}</tt>",
             "calendar": {
                 "format": {
-                    "today": "<span color='#fAfBfC'><b>{}</b></span>"
+                    "today": "<span color='#b26e4e'><b>{}</b></span>"
                 }
             },
             "actions": {

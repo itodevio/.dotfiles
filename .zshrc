@@ -1,3 +1,8 @@
+## Loading env vars
+if [ -f "$HOME/.zshenv" ]; then
+    source "$HOME/.zshenv"
+fi
+
 ## Zsh configuration file
 export z="$HOME/.zshrc"
 
@@ -114,7 +119,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 ## Wal
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
 # source $HOME/.cache/way/colors-tty.sh
 
 
@@ -139,4 +144,5 @@ alias pip="pip3"
 alias c="clear"
 alias s="source ~/.zshrc"
 alias ds="du -ahd1 * | sort -hr"
+alias t="tmux"
 

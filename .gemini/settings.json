@@ -1,10 +1,4 @@
 {
   "theme": "Default",
-  "selectedAuthType": "oauth-personal",
-  "mcpServers": {
-    "ito-mcp-test": {
-      "command": "bun",
-      "args": ["/home/ito/dev/studies/mcp/index.ts"]
-    }
-  }
+  "selectedAuthType": "gemini-api-key"
 }

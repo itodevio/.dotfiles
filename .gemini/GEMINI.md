@@ -1,5 +1,18 @@
 # Gemini Agent Guidelines
 
+## Agent Execution Guide
+
+1. Before altering the code, running other software or any kind of things like this, create an execution plan based on
+all the user told you and context given. If you need any clarifications or more context ask the user and tell them why
+you need it. When and only when you have all the context you need for the given task, create the execution plan
+describing every step you'll take to make it happen and present it to the user WITHOUT ACTUALLY RUNNING THEM. Ask the
+user for approval or if they want to change anything and go this back and forth if needed until the user approves your
+plan. Once the plan is approved, you're authorized to execute it.
+
+2. If the current project you are working with the user already has testings or if the user explicitly asked you,
+always try to follow TDD (Test Driven Development) and create tests before features, but only when that makes actual
+sense (e.g. no need to create tests for a simple sum function).
+
 ## Code Style Guides
 
 1. For javascript projects, unless specified otherwise, always use Bun as a javascript runtime and package manager (as
@@ -22,3 +35,10 @@ community is up to and choose something that is consolidated but at the same tim
 
 5. ALWAYS, before writing to a file, read it's contents so you get the latest content available and don't overwrite
 anything.
+
+6. When installing javascript libraries, ALWAYS split installs into "prod dependencies" install and "dev dependencies"
+install.
+
+7. If the current working directory is based on any stack that has a CLI to create boilerplate code (like Nest.js),
+ALWAYS use the provided CLI instead of creating it yourself. This way you prevent out of date practices and possible
+conflicts.

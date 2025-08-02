@@ -4,7 +4,7 @@
         "reload_style_on_change": true,
         "modules-left": ["custom/notification","clock","tray"],
         "modules-center": ["hyprland/workspaces"],
-        "modules-right": ["network", "custom/colorpicker", "custom/endpoint", "cpu", "memory", "temperature", "tray"],
+        "modules-right": ["network", "custom/colorpicker", "custom/endpoint", "cpu", "memory", "temperature", "custom/power"],
 
         "hyprland/workspaces": {
             "format": "{icon}",
@@ -75,5 +75,10 @@
             "on-click": "swaync-client -t -sw",
             "escape": true
         },
+        "custom/power": {
+          "tooltip": false,
+          "format": "",
+          "on-click": "power_off"
+        }
 } 
 

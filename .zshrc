@@ -105,6 +105,17 @@ aws_env_file() { # Print target AWS task defitition environment variables in .en
 	jq -r '.taskDefinition.containerDefinitions[0].environment[] | "\(.name)=\(.value | @sh)"'
 }
 
+power_off() {
+  notify-send "Powering off system" "Shutting down the system now..." --icon=dialog-warning
+
+  sleep 3;
+
+  HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
+  hyprctl --batch "$HYPRCMDS" >> /tmp/hypr/hyprexitwithgrace.log 2>&1
+
+  sudo shutdown now >> /tmp/hypr/hyprexitwithgrace.log 2>&1
+}
+
 ## Plugins
 plugins=(
     git

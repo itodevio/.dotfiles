@@ -13,6 +13,9 @@ plan. Once the plan is approved, you're authorized to execute it.
 always try to follow TDD (Test Driven Development) and create tests before features, but only when that makes actual
 sense (e.g. no need to create tests for a simple sum function).
 
+3. ALWAYS assume the user has edited files between the current and the last prompt, so ALWAYS read files again to get
+the latest version
+
 ## Code Style Guides
 
 1. For javascript projects, unless specified otherwise, always use Bun as a javascript runtime and package manager (as

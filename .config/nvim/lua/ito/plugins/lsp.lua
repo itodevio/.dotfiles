@@ -3,6 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "ray-x/go.nvim",
+      "stevearc/conform.nvim",
     },
     config = function()
       local root_pattern = require("lspconfig/util").root_pattern
@@ -56,7 +57,7 @@ return {
           -- autoformat on save for go files
           vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = event.buf,
-            callback = function()
+            callback = function(args)
               local ft = vim.bo.filetype
 
               if ft == "go" then
@@ -64,9 +65,14 @@ return {
                 require("go.format").goimports()
               end
 
-              if shouldFormat(event) then
-                vim.lsp.buf.format()
-              end
+              require("conform").format({
+                bufnr = args.buf,
+                async = true,
+              })
+
+              -- if shouldFormat(event) then
+              --   vim.lsp.buf.format()
+              -- end
             end
           })
         end

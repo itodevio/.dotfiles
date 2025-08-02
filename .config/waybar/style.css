@@ -38,6 +38,15 @@ tooltip {
   color: @color7;
 }
 
+#custom-power {
+  transition: all .3s ease;
+  color: rgba(255,0,0,.5);
+}
+#custom-power:hover {
+  transition: all .3s ease;
+  color: rgba(255,0,0,1);
+}
+
 #clock:hover,
 #bluetooth:hover,
 #network:hover,
